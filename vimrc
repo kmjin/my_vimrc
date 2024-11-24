@@ -62,7 +62,7 @@ Plugin 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 " Themes
 Plugin 'morhetz/gruvbox'
-
+"
 " Go 相关
 " go 主要插件
 Plugin 'fatih/vim-go', { 'tag': '*' }
@@ -161,87 +161,6 @@ nnoremap <C-L> <C-W><C-L>    " 组合快捷键：- Ctrl-l 切换到右侧的分�
 nnoremap <C-H> <C-W><C-H>    " 组合快捷键：- Ctrl-h 切换到左侧的分割窗口
 
 
-
-" =============== Vundle 配置 ===============
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" 插件列表
-" Vim 编辑器中的 Git 包装器插件，它可以让我们在 Vim 编辑器中完成 Git 操作
-Plugin 'tpope/vim-fugitive'
-" 用来提供一个导航目录的侧边栏
-Plugin 'scrooloose/nerdtree'
-" 在 NERDTree 中显示文件类型图标
-Plugin 'ryanoasis/vim-devicons'
-" 可以使 NERDTree 的 tab 更加友好些
-Plugin 'jistr/vim-nerdtree-tabs'
-" 可以在文件目录中看到 git 版本信息
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-" 可以在文档中显示 Git 信息
-Plugin 'airblade/vim-gitgutter'
-" 查看当前代码文件中的变量和函数列表的插件，
-" 可以切换和跳转到代码中对应的变量和函数的位置
-" 大纲式导航, Go 需要 https://github.com/jstemmer/gotags 支持
-Plugin 'preservim/tagbar'
-" 自动补全括号的插件，包括小括号，中括号，以及花括号
-Plugin 'jiangmiao/auto-pairs'
-" Vim 状态栏插件，包括显示行号，列号，文件类型，文件名，以及 Git 状态
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" 有道词典在线翻译
-Plugin 'ianva/vim-youdao-translater'
-" 代码自动完成，安装完插件还需要额外配置才可以使用
-Plugin 'ycm-core/YouCompleteMe'
-" 代码缩进提示
-Plugin 'Yggdroot/indentLine'
-" 代码折叠
-Plugin 'tmhedberg/SimpylFold'
-" 下面两个插件要配合使用，可以自动生成代码块
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-" Markdown 插件，预览数学插件
-Plugin 'iamcco/mathjax-support-for-mkdp'
-" 在浏览器预览 Markdown 文档
-Plugin 'iamcco/markdown-preview.vim'
-" 高亮显示多余空格并一键去除
-Plugin 'bronson/vim-trailing-whitespace'
-" 状态栏插件，需要安装 powerline 字体
-"Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim'}
-" 快速注释插件
-" let g:NERDSpaceDelims=1 " 注释的时候自动加个空格
-Plugin 'preservim/nerdcommenter'
-" Ctrl + p，实现模糊匹配快速打开文件等功能
-" Plugin 'kien/ctrlp.vim'
-" 这个插件其实是上边 ctrlp 插件的一个补充，它主要是提升了文件查找的速度
-" Plugin 'FelikZ/ctrlp-py-matcher'
-" LeaderF 无论是从性能还是匹配精度上，都远远超越 ctrlp，
-" 快速打开或定位某个 buffer、最近使用的文件（mru）、tags（包括函数、类、变量等）、
-" 命令历史、文件中的某一行、Vim 的 help、marks 等
-Plugin 'Yggdroot/LeaderF', { 'do': './install.sh' }
-
-" Themes
-Plugin 'morhetz/gruvbox'
-
-" Go 相关
-" go 主要插件
-Plugin 'fatih/vim-go', { 'tag': '*' }
-" go 中的代码追踪，输入 gd 就可以自动跳转
-Plugin 'dgryski/vim-godef'
-
-" Python 相关
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'tell-k/vim-autopep8'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-
-
 " =============== NERDTree 配置 ===============
 " 使用F3键快速调出和隐藏它
 map <F3> :NERDTreeToggle<CR>
@@ -250,7 +169,7 @@ let NERDTreeChDirMode=1
 " 显示书签"
 let NERDTreeShowBookmarks=1
 " 设置忽略文件类型"
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$', '\.Trash']
 " 窗口大小"
 let NERDTreeWinSize=35
 " 修改默认箭头
@@ -271,6 +190,7 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 " 在终端启动vim时，共享NERDTree
 let g:nerdtree_tabs_open_on_console_startup=1
+"let g:NERDTreeGitStatusUpdateOnCursorHold=0
 
 
 " =============== vim-devicons 配置 ===============
@@ -285,7 +205,8 @@ let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 " 解决 GUI 乱码问题
 " 下载地址：https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-set guifont=DroidSansMono_Nerd_Font:h11
+"set guifont=DroidSansMono_Nerd_Font:h11
+set guifont=DroidSansM_Nerd_Font:h11
 
 
 " =============== vim-nerdtree-tabs 配置 ===============
@@ -293,6 +214,8 @@ map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 
 " =============== nerdtree-git-plugin 配置 ===============
+let g:NERDTreeGitStatusIgnore = ['\.Trash', '~/.Trash', '.Trash']
+
 " 开发的过程中，我们希望git信息直接在NERDTree中显示出来，
 " 和Eclipse一样，修改的文件和增加的文件都给出相应的标注，
 " 这时需要安装的插件就是 nerdtree-git-plugin,配置信息如下
@@ -432,10 +355,11 @@ let g:SimpylFold_docstring_preview=1
 
 
 " =============== ultisnips 配置 ===============
-g:UltiSnipsExpandTrigger               <tab>
-g:UltiSnipsListSnippets                <c-tab>
-g:UltiSnipsJumpForwardTrigger          <c-n>
-g:UltiSnipsJumpBackwardTrigger         <c-p>
+"g:UltiSnipsExpandTrigger               <tab>
+"g:UltiSnipsListSnippets                <c-tab>
+"g:UltiSnipsJumpForwardTrigger          <c-n>
+"g:UltiSnipsJumpBackwardTrigger         <c-p>
+
 " 使用 UltiSnipsEdit 命令时垂直分割屏幕
 let g:UltiSnipsEditSplit="vertical"
 
@@ -573,4 +497,16 @@ autocmd FileType go nnoremap <buffer> <C-]> :call GodefUnderCursor()<cr> 	" 使�
 let g:autopep8_disable_show_diff=1
 autocmd FileType python noremap <buffer> <F4> :call Autopep8()<CR>
 
-
+" F5 to run sh/python3
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'sh'
+        :!time bash %
+    elseif &filetype == 'python'
+        exec "!time python3 %"
+    elseif &filetype == 'go'
+        exec "!time go run %"
+    endif
+endfunc
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
