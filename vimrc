@@ -38,7 +38,7 @@ Plugin 'Yggdroot/indentLine'
 " 代码折叠
 Plugin 'tmhedberg/SimpylFold'
 " 下面两个插件要配合使用，可以自动生成代码块
-Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips' 
 Plugin 'honza/vim-snippets'
 " Markdown 插件，预览数学插件
 Plugin 'iamcco/mathjax-support-for-mkdp'
@@ -92,7 +92,37 @@ filetype plugin indent on       " 启用自动补全 YCM需求
 " =============== 主题 ===============
 set background=dark    			" Setting dark mode
 let g:gruvbox_italic=1 			" gruvbox 前置配置
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme default
+
+"Mode Settings
+
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[3 q" "EI = NORMAL mode (ELSE)
+
+"Cursor settings:
+"
+"  "  1 -> blinking block
+"  "  2 -> solid block 
+"  "  3 -> blinking underscore
+"  "  4 -> solid underscore
+"  "  5 -> blinking vertical bar
+"  "  6 -> solid vertical bar"]"]"]]
+
+
+" 设置普通模式（Normal Mode）光标颜色
+set guicursor=n-v-c:block-Cursor/lCursor
+
+" 设置插入模式（Insert Mode）光标颜色
+set guicursor=i:block-Cursor/lCursor
+
+" 设置可视模式（Visual Mode）光标颜色
+set guicursor=v:block-Cursor/lCursor
+
+" 设置 GVim 的光标颜色（必须启用 GUI 才有效）
+highlight Cursor guifg=red guibg=blue
+
 
 
 " =============== 外观设置 ===============
@@ -108,14 +138,15 @@ set helplang=cn 				" 帮助文档中文显示
 "set transparency=10				" 设置窗口透明度
 
 
+
 " =============== 编码风格设置 ===============
 syntax enable					" 开启文件类型检测
 syntax on
 set encoding=utf-8				" 编码格式为UTF-8
 set nu 							" 设置行号
 set nowrap                      " 设置代码不折行"
-set cursorline 					" 突出显示当前行
-" set cursorcolumn				  " 突出显示当前列
+"set cursorline 					" 突出显示当前行
+"set cursorcolumn				  " 突出显示当前列
 set showmatch 					" 显示括号匹配
 set tabstop=4 					" 设置Tab长度为4空格
 set shiftwidth=4 				" 设置自动缩进长度为4空格
@@ -135,7 +166,7 @@ set ignorecase                  " 搜索时大小写不敏感
 set incsearch					" 开启实时搜索
 set hlsearch                    " 高亮搜索项
 set noexpandtab                 " 不允许扩展table
-set whichwrap+=<,>,h,l
+"set whichwrap+=<,>,h,l
 set autoread
 " 退出插入模式指定类型的文件自动保存
 "autocmd InsertLeave *.go,*.rs,*.sh,*.php,*.py,*.js,*.html,*.md write
@@ -510,3 +541,4 @@ func! CompileRunGcc()
     endif
 endfunc
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+
